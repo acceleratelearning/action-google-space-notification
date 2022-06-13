@@ -1,5 +1,5 @@
 name: Google Space Notification
-description: Build or Test a container image and apply labels
+description: Test Google Space Notification
 inputs:
   title:
     description: The title of this release

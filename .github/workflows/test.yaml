@@ -1,4 +1,4 @@
-name: Build Cluster
+name: Test Notification
 on:
   workflow_dispatch:
 jobs:
