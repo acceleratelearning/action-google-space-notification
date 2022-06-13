@@ -3,7 +3,7 @@ param (
     [Parameter(Mandatory)]
     [String]$Title,
     [Parameter(Mandatory)]
-    [String]$Webhook,
+    [String]$WebhookUrl,
     [String]$Version,
     [String]$ReleaseNotes,
     [String]$ReleaseHtmlUrl
@@ -70,7 +70,7 @@ Write-Host $body
 Write-Host '::endgroup::'
 
 Write-Host -ForegroundColor Green "Posting Google Space notices"
-$WebHook -split ';' | % {
+$WebhookUrl -split ';' | % {
     $response = Invoke-WebRequest -Method Post -ContentType 'application/json; charset=UTF-8' -Body $body -Uri $_
     Write-Host "Posted notice to $(($response.Content | ConvertFrom-Json).space.displayName)"
 }
