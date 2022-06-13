@@ -1,36 +1,26 @@
 name: Google Space Notification
 description: Build or Test a container image and apply labels
 inputs:
-  image-name:
-    description: The full image name to build
-    required: true
-  docker-context:
-    description: The directory context for docker build
-    required: false
-    default: "."
   title:
-    description: The title to be used for a container image label
+    description: The title of this release
+    required: true
+  webhook:
+    description: The Google Space Webhook
+    required: true
+  version:
+    description: The version of the release
+    required: true
+  release-notes:
+    description: Release Notes
     required: false
     default: ""
-  description:
-    description: The description to be used for a container image label
-    required: false
-    default: ""
-  authors:
-    description: The authors to be used for a container image label
-    required: false
-    default: ""
-  documentation-url:
-    description: The documentation url to be used for a container image label
-    required: false
-    default: ""
-  test-target:
-    description: A test-target for testing the dockerfile
+  release-html-url:
+    description: A link to the release page
     required: false
     default: ""
 runs:
   using: composite
   steps:
-    - name: Build Container Image
+    - name: Goggle Space Notification
       shell: pwsh
-      run: ${{ github.action_path }}/action.ps1
+      run: ${{ github.action_path }}/action.ps1 -Title '${{ inputs.title }}' -Webhook '${{ inputs.webhook }}' -Version '${{ inputs.version }}' -ReleaseNotes '${{ inputs.release-notes }}' -ReleaseHtmlUrl '${{ inputs.release-html-url }}'

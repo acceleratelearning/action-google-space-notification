@@ -14,7 +14,7 @@ jobs:
           title: Test Notification
           subtitle: SubTitle
           webhookUrl: ${{ secrets.GOOGLE_SPACE_WEBHOOK }}
-          status: Status
+          status: success
         if: always()
 
       - name: Google Space Notification
