@@ -1,0 +1,28 @@
+name: Build Cluster
+on:
+  workflow_dispatch:
+jobs:
+  test-notification:
+    name: Test Notification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Google Chat Notification
+        uses: nakamuraos/google-chat-notifications@v2.0.1
+        with:
+          title: Test Notification
+          subtitle: SubTitle
+          webhookUrl: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          status: Status
+        if: always()
+
+      - name: Google Space Notification
+        uses: acceleratelearning/google-space-notification-action@main
+        with:
+          title: Test Notification
+          webhookUrl: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          version: "1.0.0"
+          release-notes: "This is a release"
+          release-html-url: ""
+        if: always()
