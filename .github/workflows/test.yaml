@@ -13,7 +13,7 @@ jobs:
         with:
           title: Test Notification
           subtitle: SubTitle
-          webhookUrl: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          webhookUrl: ${{ secrets.GOOGLE_SPACE_WEBHOOK }}
           status: Status
         if: always()
 
@@ -21,8 +21,8 @@ jobs:
         uses: acceleratelearning/google-space-notification-action@main
         with:
           title: Test Notification
-          webhookUrl: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          webhookUrl: ${{ secrets.GOOGLE_SPACE_WEBHOOK }}
           version: "1.0.0"
           release-notes: "This is a release"
-          release-html-url: ""
+          release-html-url: "https://github.com/AccelerateLearning/google-space-notification-action"
         if: always()
