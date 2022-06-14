@@ -1,13 +1,15 @@
 #!/bin/env pwsh
 param (
-    [Parameter(Mandatory)]
     [String]$Title,
-    [Parameter(Mandatory)]
     [String]$WebhookUrl,
     [String]$Version,
     [String]$ReleaseNotes,
     [String]$ReleaseHtmlUrl
 )
+
+if (-Not $WebhookUrl) {
+    exit 0
+}
 
 $body = @{
     cards = @(
@@ -47,7 +49,7 @@ $body = @{
                                 },
                                 @{
                                     textButton = @{
-                                        text    = "Release $tag"
+                                        text    = "Release $Version"
                                         onClick = @{
                                             openLink = @{
                                                 url = $ReleaseHtmlUrl
