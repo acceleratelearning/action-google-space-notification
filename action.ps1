@@ -1,10 +1,10 @@
 #!/bin/env pwsh
 param (
-    [String]$Title,
-    [String]$WebhookUrl,
-    [String]$Version,
-    [String]$ReleaseNotes,
-    [String]$ReleaseHtmlUrl
+    [String]$Title = $env:INPUT_TITLE,
+    [String]$WebhookUrl = $env:INPUT_WEBHOOK_URL,
+    [String]$Version = $env:INPUT_VERSION,
+    [String]$ReleaseNotes = $env:INPUT_RELEASE_NOTES,
+    [String]$ReleaseHtmlUrl = $env:INPUT_RELEASE_HTML_URL
 )
 
 if (-Not $WebhookUrl) {
