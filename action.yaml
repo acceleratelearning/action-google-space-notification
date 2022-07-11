@@ -24,3 +24,9 @@ runs:
     - name: Goggle Space Notification
       shell: pwsh
       run: ${{ github.action_path }}/action.ps1
+      env:
+        INPUT_TITLE: ${{ inputs.title }}
+        INPUT_WEBHOOK_URL: ${{ inputs.webhook-url }}
+        INPUT_VERSION: ${{ inputs.version }}
+        INPUT_RELEASE_NOTES: ${{ inputs.release-notes }}
+        INPUT_RELEASE_HTML_URL: ${{ inputs.release-html-url }}

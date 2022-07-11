@@ -7,7 +7,7 @@ param (
     [String]$ReleaseHtmlUrl = $env:INPUT_RELEASE_HTML_URL
 )
 
-Get-ChildItem env: | Sort-Object
+Get-ChildItem env: | Sort-Object name
 
 if (-Not $WebhookUrl) {
     exit 0
